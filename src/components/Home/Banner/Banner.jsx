@@ -29,7 +29,7 @@ export const Banner = () => {
   return (
     <section
       className="relative min-h-screen bg-cover bg-center"
-      style={{ backgroundImage: "url('/images/cy-banner.jpg')" }}
+      style={{ backgroundImage: "url('/images/banner-cy.jpg')" }}
     >
       {/* Overlay for better contrast */}
       <div className="absolute inset-0 bg-black/40" />

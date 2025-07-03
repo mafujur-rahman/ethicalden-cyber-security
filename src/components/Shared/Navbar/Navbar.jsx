@@ -103,7 +103,7 @@ export const Navbar = () => {
                 {/* CTA Button */}
                 <button 
                     onClick={() => scrollToSection('contact')}
-                    className="hidden lg:flex items-center gap-2 bg-white text-black font-semibold text-sm md:text-base py-2 px-6 md:py-4 md:px-8 rounded-full shadow-md hover:bg-gray-100 transition-all group"
+                    className="hidden lg:flex items-center gap-2 bg-white text-black font-semibold text-sm md:text-base py-2 px-6 md:py-2 w-fit md:px-6 rounded-full shadow-md hover:bg-gray-100 transition-all group"
                 >
                     Contact Us
                     <GoArrowUpRight className="text-lg group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
