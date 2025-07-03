@@ -35,7 +35,7 @@ export const Banner = () => {
       <div className="absolute inset-0 bg-black/40" />
 
       {/* Content wrapper at bottom-left */}
-      <div className="absolute bottom-0 left-0 w-full px-6 md:px-20 lg:px-32 pb-16 z-10">
+      <div className="absolute bottom-0 left-0 w-full px-6 md:px-12 pb-16 z-10">
         <div className="text-white">
           <h1
             ref={titleRef}
@@ -47,7 +47,7 @@ export const Banner = () => {
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <button
               ref={buttonRef}
-              className="inline-flex items-center gap-2 bg-white text-black font-semibold text-sm md:text-base py-3 px-6 md:py-4 md:px-8 rounded-md shadow-md hover:bg-gray-100 transition-all group"
+              className="inline-flex items-center gap-2 w-fit bg-white text-black font-semibold text-sm lg:text-base py-3 px-6 md:py-3 md:px-6 rounded-full shadow-md hover:bg-gray-100 transition-all group"
             >
               GET A CONSULTATION
               <GoArrowUpRight className="text-lg group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
