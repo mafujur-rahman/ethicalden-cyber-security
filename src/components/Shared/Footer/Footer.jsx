@@ -24,7 +24,7 @@ export const Footer = () => {
               </div>
               <span className="text-white font-bold text-2xl">CyberSecurity</span>
             </div>
-            <p className="text-[#a8ff57] mb-6 max-w-xs">
+            <p className="text-[#09e5e5] mb-6 max-w-xs">
               Enterprise-grade cybersecurity solutions protecting businesses since 2012.
             </p>
             <div className="flex gap-4">
@@ -64,22 +64,22 @@ export const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <GoLocation className="text-[#09e5e5] mt-1 flex-shrink-0" />
-                <span className="text-[#a8ff57]">123 Security Blvd, San Francisco, CA 94107</span>
+                <span className="text-[#09e5e5]">123 Security Blvd, San Francisco, CA 94107</span>
               </li>
               <li className="flex items-center gap-3">
                 <GoMail className="text-[#09e5e5] flex-shrink-0" />
-                <span className="text-[#a8ff57]">contact@cybersecurity.com</span>
+                <span className="text-[#09e5e5]">contact@cybersecurity.com</span>
               </li>
               <li className="flex items-center gap-3">
                 <GoGlobe className="text-[#09e5e5] flex-shrink-0" />
-                <span className="text-[#a8ff57]">www.cybersecurity.com</span>
+                <span className="text-[#09e5e5]">www.cybersecurity.com</span>
               </li>
             </ul>
           </div>
         </div>
         
         <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-[#a8ff57] text-sm">© {new Date().getFullYear()} Cybers Security. All rights reserved.</p>
+          <p className="text-[#09e5e5] text-sm">© {new Date().getFullYear()} Cybers Security. All rights reserved.</p>
           <div className="flex gap-6 mt-4 md:mt-0">
             <a href="#" className="text-[#09e5e5] hover:text-[#a8ff57] text-sm transition-colors">Privacy Policy</a>
             <a href="#" className="text-[#09e5e5] hover:text-[#a8ff57] text-sm transition-colors">Terms of Service</a>
