@@ -3,10 +3,7 @@ import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-
 gsap.registerPlugin(ScrollTrigger);
-
-
 
 export const Clients = () => {
   const containerRef = useRef(null);
@@ -48,17 +45,25 @@ export const Clients = () => {
   return (
     <section className="py-16 bg-slate-900 border-y border-slate-800 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        <h3 className="text-center text-slate-400 mb-10">Trusted by industry leaders</h3>
+        <h3 className="text-center text-[#a8ff57] mb-10 font-semibold">
+          Trusted by industry leaders
+        </h3>
         
         <div ref={containerRef} className="relative w-full">
           {/* First scrolling row */}
           <div className="scroller flex w-max gap-16 py-4">
             {clients.map((client, index) => (
               <div key={index} className="flex items-center gap-4 shrink-0">
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500/10 to-indigo-500/10 flex items-center justify-center text-cyan-400 font-bold">
+                <div
+                  className="w-14 h-14 rounded-xl flex items-center justify-center font-bold"
+                  style={{
+                    background: `linear-gradient(135deg, #09e5e5, #a8ff57)`,
+                    color: '#000000',
+                  }}
+                >
                   {client.logo}
                 </div>
-                <span className="text-slate-300 font-medium">{client.name}</span>
+                <span className="text-white font-medium">{client.name}</span>
               </div>
             ))}
           </div>
@@ -67,10 +72,16 @@ export const Clients = () => {
           <div className="scroller flex w-max gap-16 py-4 mt-6">
             {[...clients].reverse().map((client, index) => (
               <div key={index} className="flex items-center gap-4 shrink-0">
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500/10 to-indigo-500/10 flex items-center justify-center text-cyan-400 font-bold">
+                <div
+                  className="w-14 h-14 rounded-xl flex items-center justify-center font-bold"
+                  style={{
+                    background: `linear-gradient(135deg, #09e5e5, #a8ff57)`,
+                    color: '#000000',
+                  }}
+                >
                   {client.logo}
                 </div>
-                <span className="text-slate-300 font-medium">{client.name}</span>
+                <span className="text-white font-medium">{client.name}</span>
               </div>
             ))}
           </div>
@@ -79,7 +90,3 @@ export const Clients = () => {
     </section>
   );
 };
-
-
-
-

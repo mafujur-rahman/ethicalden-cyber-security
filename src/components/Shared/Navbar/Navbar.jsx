@@ -70,9 +70,9 @@ export const Navbar = () => {
                 {/* Logo with scroll to top */}
                 <button 
                     onClick={() => scrollToSection('hero')}
-                    className="text-2xl font-bold text-white hover:text-cyan-400 transition-colors"
+                    className="text-2xl font-bold text-white transition-colors"
                 >
-                    cyber<span className="text-cyan-400"> security</span>
+                    cyber<span className="text-[#a8ff57]"> security</span>
                 </button>
 
                 {/* Center nav with glass blur */}
@@ -90,7 +90,7 @@ export const Navbar = () => {
                                 <button
                                     key={item.id}
                                     onClick={() => scrollToSection(item.id)}
-                                    className="text-white hover:text-cyan-300 cursor-pointer transition-colors duration-300 font-medium"
+                                    className="text-white hover:text-[#a8ff57] cursor-pointer transition-colors duration-300 font-medium"
                                 >
                                     {item.label}
                                 </button>

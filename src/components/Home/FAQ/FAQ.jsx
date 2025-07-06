@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React, { useRef, useEffect, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -70,41 +70,41 @@ export const FAQs = () => {
 
   return (
     <section ref={sectionRef} className="py-24 px-6 md:px-12 bg-slate-900">
-      <div ref={containerRef} className="max-w-7xl mx-auto">
+      <div ref={containerRef} className="max-w-3xl mx-auto">
         <div className="text-center mb-16">
-          <span className="inline-block bg-cyan-900/30 text-cyan-400 px-4 py-1 rounded-full mb-4 text-sm font-medium tracking-wider">
+          <span className="inline-block bg-[#09e5e5]/20 text-[#09e5e5] px-4 py-1 rounded-full mb-4 text-sm font-medium tracking-wider">
             HAVE QUESTIONS?
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Frequently Asked <span className="text-transparent bg-clip-text bg-cyan-400 ">Questions</span>
+            Frequently Asked <span className=" text-[#a8ff57]">Questions</span>
           </h2>
-          <p className="text-slate-400 max-w-2xl mx-auto text-lg">
+          <p className="text-gray-300 max-w-xl mx-auto text-lg">
             Find answers to common questions about our cybersecurity services
           </p>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 gap-6">
           {faqs.map((faq, index) => (
             <div 
               key={index}
               ref={el => itemRefs.current[index] = el}
-              className={`bg-slate-800/30 backdrop-blur-lg rounded-xl p-6 border transition-all duration-300 ${
+              className={`bg-slate-800/30 backdrop-blur-lg rounded-xl p-6 border cursor-pointer transition-all duration-300 ${
                 activeIndex === index 
-                  ? 'border-cyan-400 shadow-lg shadow-cyan-400/20' 
+                  ? 'border-[#a8ff57] shadow-lg shadow-[#a8ff57]/30' 
                   : 'border-slate-700'
               }`}
               onClick={() => toggleFAQ(index)}
             >
-              <div className="flex items-start justify-between cursor-pointer">
+              <div className="flex items-start justify-between">
                 <h3 className={`text-xl font-bold pr-4 transition-colors ${
-                  activeIndex === index ? 'text-cyan-400' : 'text-white'
+                  activeIndex === index ? 'text-[#a8ff57]' : 'text-white'
                 }`}>
                   {faq.question}
                 </h3>
                 <div className="w-8 h-8 flex items-center justify-center">
                   <svg 
                     className={`transition-transform duration-300 ${
-                      activeIndex === index ? 'rotate-180 text-cyan-400' : 'text-slate-400'
+                      activeIndex === index ? 'rotate-180 text-[#a8ff57]' : 'text-[#09e5e5]'
                     }`}
                     width="24" 
                     height="24" 
@@ -141,7 +141,7 @@ export const FAQs = () => {
                 }`}
               >
                 <div className="pt-4 border-t border-slate-700">
-                  <p className="text-slate-300">{faq.answer}</p>
+                  <p className="text-gray-300">{faq.answer}</p>
                 </div>
               </div>
             </div>

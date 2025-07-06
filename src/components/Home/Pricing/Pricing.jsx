@@ -91,13 +91,13 @@ export const Pricing = () => {
     <section id='pricing' ref={sectionRef} className="py-24 px-6 md:px-12 bg-slate-950 relative overflow-hidden">
       <div ref={containerRef} className="max-w-7xl mx-auto relative z-10 opacity-0">
         <div className="text-center mb-16">
-          <span className="inline-block bg-cyan-900/30 text-cyan-400 px-4 py-1 rounded-full mb-4 text-sm font-medium">
+          <span className="inline-block bg-[#09e5e5]/20 text-[#09e5e5] px-4 py-1 rounded-full mb-4 text-sm font-medium">
             PRICING PLANS
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Flexible <span className="text-cyan-400">Security Packages</span>
+            Flexible <span className="text-[#a8ff57]">Security Packages</span>
           </h2>
-          <p className="text-slate-400 max-w-2xl mx-auto">
+          <p className="text-gray-300 max-w-2xl mx-auto">
             Comprehensive security solutions tailored to your organization's size and needs
           </p>
         </div>
@@ -109,37 +109,37 @@ export const Pricing = () => {
               ref={el => cardRefs.current[index] = el}
               className={`bg-slate-800/50 backdrop-blur-sm border rounded-xl p-8 transition-all duration-300 hover:-translate-y-2 shadow-lg ${
                 plan.highlighted 
-                  ? 'border-cyan-400/40 shadow-cyan-500/20 scale-[1.03]' 
-                  : 'border-cyan-400/20 shadow-cyan-500/10 opacity-0'
+                  ? 'border-[#a8ff57]/40 shadow-[#a8ff57]/20 scale-[1.03]' 
+                  : 'border-[#09e5e5]/20 shadow-[#09e5e5]/10 opacity-0'
               }`}
             >
               {plan.highlighted && (
-                <div className="bg-cyan-400/10 text-cyan-400 text-sm font-medium px-4 py-1 rounded-full mb-6 inline-block">
+                <div className="bg-[#a8ff57]/10 text-[#a8ff57] text-sm font-medium px-4 py-1 rounded-full mb-6 inline-block">
                   MOST POPULAR
                 </div>
               )}
               
               <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
-              <p className="text-slate-400 mb-6">{plan.description}</p>
+              <p className="text-gray-300 mb-6">{plan.description}</p>
               
               <div className="mb-8">
                 <span className="text-4xl font-bold text-white">{plan.price}</span>
-                <span className="text-slate-400">{plan.period}</span>
+                <span className="text-gray-400">{plan.period}</span>
               </div>
               
               <ul className="space-y-4 mb-8">
                 {plan.features.map((feature, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <GoShieldCheck className="text-cyan-400 mt-0.5 flex-shrink-0" />
-                    <span className="text-slate-300">{feature}</span>
+                    <GoShieldCheck className="text-[#09e5e5] mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-300">{feature}</span>
                   </li>
                 ))}
               </ul>
               
               <button className={`w-full py-3 rounded-lg font-medium transition-all ${
                 plan.highlighted
-                  ? 'bg-cyan-500 hover:bg-cyan-400 text-white'
-                  : 'bg-slate-700 hover:bg-slate-600 text-slate-300'
+                  ? 'bg-[#a8ff57] hover:bg-[#8de24f] text-black'
+                  : 'bg-slate-700 hover:bg-slate-600 text-gray-300'
               }`}>
                 Get Started
               </button>
