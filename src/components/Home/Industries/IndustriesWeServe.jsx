@@ -8,7 +8,7 @@ import {
   FaHospital,
   FaShoppingCart,
   FaUniversity,
-  FaLaptopCode
+  FaLaptopCode,
 } from 'react-icons/fa';
 import { GoGlobe } from 'react-icons/go';
 
@@ -16,7 +16,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export const IndustriesWeServe = () => {
   const sectionRef = useRef(null);
-  const containerRef = useRef(null);
+  const headerRef = useRef(null);
   const itemRefs = useRef([]);
 
   const industries = [
@@ -49,56 +49,58 @@ export const IndustriesWeServe = () => {
       icon: <GoGlobe className="text-3xl text-[#a8ff57]" />,
       title: 'Energy',
       description: 'Securing smart grids and industrial IoT environments.',
-    }
+    },
   ];
 
   useEffect(() => {
-    gsap.fromTo(
-      containerRef.current,
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        ease: 'expo.out',
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 80%',
-        }
-      }
-    );
-
-    itemRefs.current.forEach((el, i) => {
-      const direction = i % 2 === 0 ? -200 : 200; // even = left, odd = right
+    const ctx = gsap.context(() => {
       gsap.fromTo(
-        el,
-        {
-          opacity: 0,
-          x: direction,
-        },
+        headerRef.current,
+        { opacity: 0, y: 50 },
         {
           opacity: 1,
-          x: 0,
+          y: 0,
           duration: 1,
           ease: 'power3.out',
           scrollTrigger: {
-            trigger: el,
-            start: 'top 85%',
+            trigger: sectionRef.current,
+            start: 'top 80%',
           },
         }
       );
-    });
+
+      itemRefs.current.forEach((el, i) => {
+        const dir = i % 2 === 0 ? -100 : 100;
+        gsap.fromTo(
+          el,
+          { opacity: 0, x: dir },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 1,
+            ease: 'power4.out',
+            scrollTrigger: {
+              trigger: el,
+              start: 'top 85%',
+            },
+          }
+        );
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
   }, []);
 
   return (
     <section
-      id='blogs'
       ref={sectionRef}
-      className="py-28 px-6 md:px-12 bg-slate-950 overflow-hidden relative"
+      id="industries"
+      className="relative py-28 px-6 md:px-12 bg-[#111] overflow-hidden"
     >
+
       {/* Header */}
-      <div ref={containerRef} className="text-center max-w-4xl mx-auto mb-24 opacity-0 relative z-10">
-        <span className="inline-block bg-[#09e5e5]/20 text-[#09e5e5] px-4 py-1 rounded-full text-sm font-semibold mb-5">
+      <div ref={headerRef} className="relative z-10 text-center max-w-4xl mx-auto mb-20 opacity-0">
+        <span className="inline-block bg-[#09e5e5]/20 text-[#09e5e5] px-4 py-1 rounded-full text-sm font-semibold mb-4">
           INDUSTRY EXPERTISE
         </span>
         <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
@@ -109,25 +111,25 @@ export const IndustriesWeServe = () => {
         </p>
       </div>
 
-      {/* Zigzag Layout Without Center Line */}
-      <div className="relative z-10 max-w-6xl mx-auto flex flex-col gap-20">
+      {/* Industry Items Zigzag Layout */}
+      <div className="relative z-10 max-w-6xl mx-auto flex flex-col gap-16">
         {industries.map((industry, index) => (
           <div
             key={index}
             ref={(el) => (itemRefs.current[index] = el)}
-            className={`relative flex flex-col md:flex-row items-center gap-6 ${
-              index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-            } group`}
+            className={`relative flex flex-col md:flex-row items-center gap-6 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+              } group`}
           >
             {/* Icon */}
-            <div className="z-10 shrink-0 w-16 h-16 rounded-full bg-[#a8ff57]/10 border border-[#a8ff57]/30 flex items-center justify-center shadow-md">
+            <div className="z-10 shrink-0 w-16 h-16 rounded-full bg-[#a8ff57]/10 border border-[#a8ff57]/30 flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300">
               {industry.icon}
             </div>
 
             {/* Content */}
-            <div className="bg-slate-800/20 border border-[#09e5e5]/10 backdrop-blur-md px-6 py-4 rounded-2xl text-white w-full md:w-1/2">
-              <h3 className="text-xl font-bold text-[#a8ff57] mb-1">{industry.title}</h3>
-              <p className="text-gray-300 text-sm">{industry.description}</p>
+            <div className="bg-slate-800/30 border border-[#09e5e5]/10 backdrop-blur-md px-6 py-5 rounded-2xl text-white w-full md:w-1/2 shadow-xl hover:shadow-[#09e5e5]/10 transition-all duration-300">
+              <h3 className="text-xl font-bold text-[#a8ff57] mb-2">{industry.title}</h3>
+              <p className="text-gray-300 text-sm leading-relaxed">{industry.description}</p>
+              <div className="mt-4 h-0.5 bg-gradient-to-r from-[#a8ff57] to-transparent w-10 group-hover:w-full transition-all duration-500" />
             </div>
           </div>
         ))}

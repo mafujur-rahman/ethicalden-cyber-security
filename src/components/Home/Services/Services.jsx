@@ -1,9 +1,9 @@
 'use client';
+
 import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { GoShieldCheck, GoLock, GoEye, GoGraph } from 'react-icons/go';
-import { motion } from 'framer-motion';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,98 +13,104 @@ export const Services = () => {
   const cardRefs = useRef([]);
 
   useEffect(() => {
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: 'top 80%',
-      }
-    });
-
-    tl.fromTo(titleRef.current,
-      { opacity: 0, y: 40 },
-      { opacity: 1, y: 0, duration: 0.8 }
-    );
-
-    cardRefs.current.forEach((card, i) => {
-      tl.fromTo(card,
-        { opacity: 0, y: 60, scale: 0.8 },
-        { 
-          opacity: 1, 
-          y: 0, 
-          scale: 1,
-          duration: 0.7,
-          ease: "back.out(1.7)"
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top 80%',
         },
-        i === 0 ? '-=0.4' : '-=0.5'
+      });
+
+      tl.fromTo(
+        titleRef.current,
+        { opacity: 0, y: 50 },
+        { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }
       );
-    });
+
+      gsap.fromTo(
+        cardRefs.current,
+        {
+          opacity: 0,
+          y: 80,
+          scale: 0.9,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 1,
+          stagger: 0.2,
+          ease: 'power4.out',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 80%',
+          },
+        }
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
   }, []);
 
   const services = [
-    { 
+    {
       icon: <GoShieldCheck className="text-3xl" />,
       title: 'Threat Intelligence',
-      description: 'Proactive monitoring and analysis of emerging cyber threats to protect your assets'
+      description: 'Proactive monitoring and analysis of emerging cyber threats to protect your assets',
     },
-    { 
+    {
       icon: <GoLock className="text-3xl" />,
       title: 'Vulnerability Management',
-      description: 'Comprehensive security assessments and continuous vulnerability tracking'
+      description: 'Comprehensive security assessments and continuous vulnerability tracking',
     },
-    { 
+    {
       icon: <GoEye className="text-3xl" />,
       title: 'Incident Response',
-      description: '24/7 rapid response team to contain and eradicate security breaches'
+      description: '24/7 rapid response team to contain and eradicate security breaches',
     },
-    { 
+    {
       icon: <GoGraph className="text-3xl" />,
       title: 'Compliance Advisory',
-      description: 'Ensure regulatory compliance with industry-specific security frameworks'
-    }
+      description: 'Ensure regulatory compliance with industry-specific security frameworks',
+    },
   ];
 
   return (
-    <section id="services" ref={sectionRef} className="relative py-28 px-6 md:px-12 bg-slate-950 overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-[#09e5e5]/10 rounded-full mix-blend-screen blur-[100px]"></div>
-      <div className="absolute bottom-10 right-10 w-64 h-64 bg-[#a8ff57]/10 rounded-full mix-blend-screen blur-[100px]"></div>
-      
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-20">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-block bg-[#09e5e5]/20 text-[#09e5e5] px-4 py-1 rounded-full mb-4 text-sm font-medium"
-          >
+    <section
+      ref={sectionRef}
+      id="services"
+      className="relative py-28 px-6 md:px-12 bg-[#111] overflow-hidden"
+    >
+      <div className="max-w-7xl mx-auto relative z-10 text-center">
+        <div className="mb-16">
+          <div className="inline-block bg-[#09e5e5]/20 text-[#09e5e5] px-4 py-1 rounded-full text-sm font-medium mb-4">
             SECURE YOUR DIGITAL FRONTIER
-          </motion.div>
-          <h2 ref={titleRef} className="text-4xl md:text-5xl font-bold text-white mb-6 text-center opacity-0">
+          </div>
+          <h2
+            ref={titleRef}
+            className="text-4xl md:text-5xl font-bold text-white opacity-0"
+          >
             Enterprise-Grade <span className="text-[#a8ff57]">Cyber Defense</span>
           </h2>
-          <p className="text-gray-300 max-w-2xl mx-auto text-lg">
+          <p className="text-gray-400 mt-4 max-w-xl mx-auto text-lg">
             Comprehensive cybersecurity solutions designed to protect your organization from evolving digital threats.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {services.map((service, index) => (
-            <motion.div
+            <div
               key={index}
               ref={(el) => (cardRefs.current[index] = el)}
-              className="bg-slate-800/50 backdrop-blur-sm border border-[#a8ff57]/20 rounded-xl p-8 hover:border-[#a8ff57]/40 transition-all duration-300 hover:-translate-y-2 shadow-lg shadow-[#09e5e5]/10 opacity-0 group"
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.98 }}
+              className="group bg-slate-800/40 backdrop-blur-md border border-[#09e5e5]/20 hover:border-[#a8ff57]/40 transition-all rounded-2xl p-6 text-left text-white shadow-xl shadow-black/10 hover:shadow-[#09e5e5]/10"
             >
-              <div className="bg-[#a8ff57]/10 w-16 h-16 rounded-xl flex items-center justify-center mb-6 text-[#a8ff57] group-hover:bg-[#a8ff57]/20 transition-colors">
+              <div className="bg-[#a8ff57]/10 w-14 h-14 flex items-center justify-center rounded-lg mb-6 text-[#a8ff57] group-hover:scale-110 transition-transform duration-300">
                 {service.icon}
               </div>
-              <h3 className="text-xl font-bold text-white mb-3">{service.title}</h3>
-              <p className="text-gray-300">{service.description}</p>
-              <div className="mt-6">
-                <div className="w-8 h-0.5 bg-[#a8ff57] group-hover:w-full transition-all duration-500 ease-in-out"></div>
-              </div>
-            </motion.div>
+              <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
+              <p className="text-sm text-gray-300">{service.description}</p>
+              <div className="mt-5 h-0.5 bg-gradient-to-r from-[#a8ff57] to-transparent w-10 group-hover:w-full transition-all duration-500" />
+            </div>
           ))}
         </div>
       </div>

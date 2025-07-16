@@ -43,7 +43,7 @@ export const Clients = () => {
   ];
 
   return (
-    <section className="py-16 bg-slate-900 border-y border-slate-800 overflow-hidden">
+    <section className="py-16 bg-[#1c1c1c] overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <h3 className="text-center text-[#a8ff57] mb-10 font-semibold">
           Trusted by industry leaders
