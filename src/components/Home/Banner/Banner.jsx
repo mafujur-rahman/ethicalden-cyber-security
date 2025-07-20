@@ -46,10 +46,10 @@ const Banner = () => {
   }, []);
 
   return (
-    <section className="w-full min-h-[110vh] bg-gradient-to-br from-black via-gray-900 to-[#002b36] text-white flex flex-col md:flex-row items-center justify-between xl:justify-around px-6 md:px-12 py-20 relative overflow-hidden gap-10">
+    <section className="w-full min-h-[110vh] bg-gradient-to-br from-black via-gray-900 to-[#002b36] text-white flex flex-col md:flex-row items-center justify-between xl:justify-around px-6 md:px-12 xl-px-40 2xl:px-42 py-20 relative overflow-hidden gap-10 2xl:gap-6">
       {/* Left Content */}
       <div className="w-full md:w-1/2 text-center md:text-left z-10">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight max-w-2xl mx-auto md:mx-0">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold leading-tight max-w-2xl 2xl:max-w-3xl mx-auto md:mx-0">
           Industry Leader in <br />
           <span className="text-teal-400">Biometrics</span>{' '}
           <span className="text-teal-400 block">Technology.</span>
