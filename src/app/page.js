@@ -1,4 +1,5 @@
 
+import About from "@/components/Home/About/About";
 import Banner from "@/components/Home/Banner/Banner";
 import { FAQs } from "@/components/Home/FAQ/FAQ";
 import { Clients } from "@/components/Home/Industries/Clients";
@@ -17,7 +18,8 @@ export default function Home() {
         <Navbar />
         <Banner />
       </div>
-      <Services />
+      {/* <Services /> */}
+      <About />
       <Clients />
       <IndustriesWeServe />
       <Stats />
