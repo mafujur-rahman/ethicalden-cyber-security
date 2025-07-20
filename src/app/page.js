@@ -1,4 +1,5 @@
-import { Banner } from "@/components/Home/Banner/Banner";
+
+import Banner from "@/components/Home/Banner/Banner";
 import { FAQs } from "@/components/Home/FAQ/FAQ";
 import { Clients } from "@/components/Home/Industries/Clients";
 import { IndustriesWeServe } from "@/components/Home/Industries/IndustriesWeServe";

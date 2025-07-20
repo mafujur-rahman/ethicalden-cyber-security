@@ -145,7 +145,7 @@ export const Navbar = () => {
   return (
     <header
       ref={navbarRef}
-      className="fixed top-0 left-0 right-0 z-50 mx-6 md:mx-12 opacity-0"
+      className="fixed top-0 left-0 right-0 z-50 px-6 md:px-12 opacity-0"
     >
       <div className="relative h-20 mt-4 flex items-center justify-between ">
         {/* Logo */}
