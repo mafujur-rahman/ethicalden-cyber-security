@@ -145,7 +145,7 @@ export const Navbar = () => {
   return (
     <header
       ref={navbarRef}
-      className="fixed top-0 left-0 right-0 z-50 px-6 md:px-12 opacity-0"
+      className="fixed top-0 left-0 right-0 z-50 px-6 md:px-12 xl:px-28 2xl:px-56 opacity-0"
     >
       <div className="relative h-20 mt-4 flex items-center justify-between ">
         {/* Logo */}
@@ -180,17 +180,11 @@ export const Navbar = () => {
 
         {/* CTA Button */}
         <button
-          ref={contactBtnRef}
           onClick={() => scrollToSection('contact')}
-          className="hidden lg:flex items-center gap-2 bg-white text-black font-semibold text-sm md:text-base py-2 px-6 md:py-2 w-fit md:px-6 rounded-full shadow-md border border-transparent transition-all relative overflow-visible"
-          style={{ willChange: 'backgroundColor, box-shadow' }}
+          className="hidden lg:flex px-6 py-2 border text-xs md:text-xs lg:text-[16px] xl:text-xl text-black bg-[#a8ff57] hover:bg-[#09e5e5] hover:text-black transition rounded-full font-semibold"
         >
-          Contact Us
-          <GoArrowUpRight
-            ref={iconRef}
-            className="text-lg relative"
-            style={{ pointerEvents: 'none' }}
-          />
+          CONTACT US
+          
         </button>
 
         {/* Mobile Menu Button */}

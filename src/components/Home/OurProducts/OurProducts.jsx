@@ -63,19 +63,19 @@ const OurProducts = () => {
     const [selectedProduct, setSelectedProduct] = useState(products[0].title);
 
     return (
-        <div className='px-6 lg:px-12 py-20'>
+        <div className='bg-[#111] px-6 md:px-12 xl:px-28 2xl:px-56 py-20'>
             {/* Section Title */}
-            <h1 className="text-4xl lg:text-8xl font-extrabold max-w-7xl mb-20 z-20">
-                Cutting-Edge Cyber Security Products to Safeguard Your Digital World.
+            <h1 className="text-white text-3xl  md:text-4xl lg:text-6xl xl:text-6xl 2xl:text-7xl font-extrabold max-w-7xl mb-20 z-20">
+                Cutting-Edge Cyber Security Products to <span className='text-[#a8ff57]'>Safeguard Your Digital World.</span>
             </h1>
 
             {/* Product List */}
-            <div className='text-2xl font-bold grid grid-cols-2 lg:grid-cols-4 gap-10 cursor-pointer'>
+            <div className='text-2xl font-bold grid grid-cols-2 lg:grid-cols-4 gap-10 cursor-pointer text-white'>
                 {products.map((product, index) => (
                     <div
                         key={index}
                         onClick={() => setSelectedProduct(product.title)}
-                        className={`flex items-center gap-4 p-2 rounded-md transition hover:text-teal-800 ${selectedProduct === product.title ? ' text-teal-800' : ''
+                        className={`flex items-center gap-4 p-2 rounded-md transition hover:text-[#09e5e5] ${selectedProduct === product.title ? ' text-[#09e5e5]' : ''
                             }`}
                     >
                         <img src={product.img} alt={product.title} className="w-auto h-20 object-contain" />
@@ -84,37 +84,37 @@ const OurProducts = () => {
                 ))}
             </div>
 
-            <hr className="mt-12 border-t border-gray-300" />
+            <hr className="mt-5 border-t border-gray-300" />
 
             {/* Featured Products Section */}
             <div className='mt-16 flex flex-col lg:flex-row items-start justify-between gap-16'>
                 <div className="lg:w-1/2">
-                    <p className="text-xl mb-6 max-w-lg">
+                    <p className="text-xl mb-6 max-w-lg text-white">
                         Our cybersecurity systems provide enterprise-grade protection for your entire digital infrastructure.
                     </p>
                     <div className="flex gap-4">
-                        <button className="bg-teal-700 text-white font-bold px-6 py-3 rounded-md hover:bg-teal-800 transition">
+                        <button className="px-6 py-3 border text-xs md:text-xs lg:text-[16px] xl:text-xl text-black bg-[#a8ff57] hover:bg-[#09e5e5] hover:text-black transition rounded-full font-semibold">
                             LEARN MORE
                         </button>
-                        <button className="border border-teal-700 text-teal-700 font-bold px-6 py-3 rounded-md hover:bg-teal-100 transition">
+                        <button className="px-6 py-3 border text-xs md:text-xs lg:text-[16px] xl:text-xl text-black bg-[#09e5e5] hover:bg-[#a8ff57] hover:text-black transition rounded-full font-semibold">
                             GET IN TOUCH
                         </button>
                     </div>
                 </div>
 
                 <div className="lg:w-1/2">
-                    <h2 className="text-xl font-semibold mb-6">Featured Products</h2>
+                    <h2 className="text-xl font-semibold mb-6 text-[#a8ff57]">Featured Products</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
                         {featuredMap[selectedProduct]?.map((product, index) => (
                             <div
                                 key={index}
-                                className="group border rounded-lg p-6 hover:shadow-2xl transition duration-300 min-h-[450px] flex flex-col items-center justify-between"
+                                className="group border rounded-lg p-6 hover:shadow-2xl transition duration-300 min-h-[450px] flex flex-col items-center justify-between bg-white"
                             >
                                 <div className="overflow-hidden rounded-md flex justify-center items-center h-60">
                                     <img
                                         src={product.img}
                                         alt={product.title}
-                                        className="h-32 object-contain transform group-hover:scale-105 transition-transform duration-300"
+                                        className="h-40 object-contain transform group-hover:scale-105 transition-transform duration-300"
                                     />
                                 </div>
                                 <div className=" mt-6">

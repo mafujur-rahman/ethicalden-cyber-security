@@ -95,14 +95,14 @@ const About = () => {
   }, []);
 
   return (
-    <div className="px-6 lg:px-12 py-20">
-      <h1 className="text-4xl lg:text-8xl font-extrabold max-w-7xl mb-20 z-20">
-        Securing the Digital World with Advanced Cybersecurity Solutions
+    <div className="bg-[#0c0c0c] px-6 md:px-12 xl:px-28 2xl:px-56 py-20">
+      <h1 className="text-3xl  md:text-4xl lg:text-6xl xl:text-6xl 2xl:text-7xl font-extrabold max-w-7xl text-white mb-20 z-20">
+        Securing the Digital World with Advanced <span className='text-[#a8ff57]'>Cybersecurity Solutions</span>
       </h1>
 
-      <div className="flex flex-col lg:flex-row justify-between items-center gap-16 px-40">
+      <div className="flex flex-col lg:flex-row justify-between items-center gap-16">
         {/* Left Side - Animated Circles with Image */}
-        <div className="relative w-[500px] h-[500px] -mt-36 -ml-56">
+        <div className="relative w-[500px] h-[500px] ">
           <div className="absolute inset-0 rounded-full border-[0.5px] border-gray-300 animate-spin-slow" />
           <div className="absolute inset-10 rounded-full border border-gray-400 animate-spin-slower" />
           <img
@@ -114,48 +114,47 @@ const About = () => {
 
         {/* Right Side - Info Section */}
         <div className="max-w-xl">
-          <p className="text-2xl mb-6 font-semibold">
-            <strong>
+          <p className="text-2xl mb-6 text-[#09e5e5]  font-bold">
               Since our inception, we've been committed to defending organizations from ever-evolving cyber threats with cutting-edge security technologies.
-            </strong>
+
           </p>
-          <p className="text-gray-700 mb-10">
+          <p className="text-gray-300 mb-10">
             From threat detection and prevention to full-scale security operations, our comprehensive cybersecurity solutions protect businesses, governments, and institutions globally.
           </p>
 
           <div className="space-y-10">
             <div className="flex items-start gap-6">
               <div className="flex flex-col items-center">
-                <div className="w-1 h-6 bg-black mb-1 z-10" />
-                <div className="w-0.5 h-16 -mt-3 bg-gray-400" />
+                <div className="w-1 h-6 bg-[#a8ff57] mb-1 z-10" />
+                <div className="w-0.5 h-16 -mt-3 bg-[#09e5e5]" />
               </div>
               <div>
                 <div className="flex items-baseline">
-                  <span className="text-5xl font-bold">15+</span>
-                  <span className="ml-2 text-sm text-gray-500">YEARS</span>
+                  <span className="text-5xl font-bold text-[#a8ff57]">15+</span>
+                  <span className="ml-2 text-sm text-[#09e5e5]">YEARS</span>
                 </div>
-                <p className="text-gray-600">of proven experience in cybersecurity innovation.</p>
+                <p className="text-gray-400">of proven experience in cybersecurity innovation.</p>
               </div>
             </div>
 
             <div className="flex items-start gap-6">
               <div className="flex flex-col items-center">
-                <div className="w-1 h-6 bg-black mb-1 z-10" />
-                <div className="w-0.5 h-16 bg-gray-400 -mt-3" />
+                <div className="w-1 h-6 bg-[#a8ff57] mb-1 z-10" />
+                <div className="w-0.5 h-16 bg-[#09e5e5] -mt-3" />
               </div>
               <div>
                 <div className="flex items-baseline">
-                  <span className="text-5xl font-bold">500+</span>
-                  <span className="ml-2 text-sm text-gray-500">CLIENTS</span>
+                  <span className="text-5xl font-bold text-[#a8ff57]">500+</span>
+                  <span className="ml-2 text-sm text-[#09e5e5]">CLIENTS</span>
                 </div>
-                <p className="text-gray-600">trust us to safeguard their digital infrastructure.</p>
+                <p className="text-gray-400">trust us to safeguard their digital infrastructure.</p>
               </div>
             </div>
           </div>
 
-          <button className="mt-10 px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white rounded-md">
-            LEARN MORE
-          </button>
+          <button className="mt-8 px-6 py-3 border text-xs md:text-xs lg:text-[16px] xl:text-xl text-black bg-[#a8ff57] hover:bg-[#09e5e5] hover:text-black transition rounded-full font-semibold">
+          LEARN MORE
+        </button>
         </div>
       </div>
     </div>

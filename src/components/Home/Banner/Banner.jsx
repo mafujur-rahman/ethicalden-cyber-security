@@ -46,19 +46,19 @@ const Banner = () => {
   }, []);
 
   return (
-    <section className="w-full min-h-[110vh] bg-gradient-to-br from-black via-gray-900 to-[#002b36] text-white flex flex-col md:flex-row items-center justify-between xl:justify-around px-6 md:px-12 xl-px-40 2xl:px-42 py-20 relative overflow-hidden gap-10 2xl:gap-6">
+    <section className="w-full min-h-[110vh] bg-[#111] text-white flex flex-col md:flex-row items-center justify-between xl:justify-around px-6 md:px-12 xl:px-28 2xl:px-42 py-20 relative pt-36 overflow-hidden gap-10 2xl:gap-6">
       {/* Left Content */}
-      <div className="w-full md:w-1/2 text-center md:text-left z-10">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl 2xl:text-7xl font-bold leading-tight max-w-2xl 2xl:max-w-3xl mx-auto md:mx-0">
+      <div className="w-full md:w-1/2  md:text-left z-10">
+        <h1 className="text-3xl  md:text-4xl lg:text-6xl xl:text-6xl 2xl:text-7xl font-bold leading-tight max-w-2xl 2xl:max-w-3xl mx-auto md:mx-0">
           Trusted Cybersecurity<br />
-          <span className="text-teal-400">for a Safer Future</span>
+          <span className="text-[#a8ff57]">for a Safer Future</span>
         </h1>
         <p className="text-gray-300 max-w-xl mx-auto md:mx-0 mt-6 text-base sm:text-lg leading-relaxed">
           Safeguarding digital environments with cutting-edge security solutions tailored
           for modern threats—because your data deserves protection.
         </p>
 
-        <button className="mt-8 px-6 py-3 border border-gray-400 hover:bg-teal-500 hover:text-black transition rounded-md font-semibold">
+        <button className="mt-8 px-6 py-3 border text-xs md:text-xs lg:text-[16px] xl:text-xl text-black bg-[#a8ff57] hover:bg-[#09e5e5] hover:text-black transition rounded-full font-semibold">
           EXPLORE OUR SECURITY SOLUTIONS
         </button>
       </div>
@@ -66,13 +66,13 @@ const Banner = () => {
       {/* Right Image with Decorative Circles */}
       <div
         ref={rightRef}
-        className="relative flex items-center justify-center w-full max-w-[400px] sm:max-w-[480px] md:max-w-[520px] aspect-square mx-auto md:mx-0 z-10"
+        className="relative flex items-center justify-center w-full max-w-[400px] sm:max-w-[480px] lg:max-w-[520px] aspect-square mx-auto lg:mx-0 z-10"
       >
         {/* Decorative Rings */}
         <div className="absolute w-full h-full rounded-full border border-white/30 border-dashed"></div>
         <div
           ref={ringRef}
-          className="absolute w-[85%] h-[85%] rounded-full border-2 border-teal-600/40 border-dashed"
+          className="absolute w-[85%] h-[85%] rounded-full border-2 border-[#a8ff57]/40 border-dashed"
         ></div>
         <div className="absolute w-[73%] h-[73%] rounded-full border-6 border-white/30"></div>
 
