@@ -49,18 +49,17 @@ const Banner = () => {
     <section className="w-full min-h-[110vh] bg-gradient-to-br from-black via-gray-900 to-[#002b36] text-white flex flex-col md:flex-row items-center justify-between xl:justify-around px-6 md:px-12 xl-px-40 2xl:px-42 py-20 relative overflow-hidden gap-10 2xl:gap-6">
       {/* Left Content */}
       <div className="w-full md:w-1/2 text-center md:text-left z-10">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold leading-tight max-w-2xl 2xl:max-w-3xl mx-auto md:mx-0">
-          Industry Leader in <br />
-          <span className="text-teal-400">Biometrics</span>{' '}
-          <span className="text-teal-400 block">Technology.</span>
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl 2xl:text-7xl font-bold leading-tight max-w-2xl 2xl:max-w-3xl mx-auto md:mx-0">
+          Trusted Cybersecurity<br />
+          <span className="text-teal-400">for a Safer Future</span>
         </h1>
         <p className="text-gray-300 max-w-xl mx-auto md:mx-0 mt-6 text-base sm:text-lg leading-relaxed">
-          Aratek is the global leader in the biometrics and security industries.
-          Our biometric devices and solutions are making a real difference for
-          millions of people all over the world.
+          Safeguarding digital environments with cutting-edge security solutions tailored
+          for modern threats—because your data deserves protection.
         </p>
+
         <button className="mt-8 px-6 py-3 border border-gray-400 hover:bg-teal-500 hover:text-black transition rounded-md font-semibold">
-          VIEW OUR SERVICE
+          EXPLORE OUR SECURITY SOLUTIONS
         </button>
       </div>
 
@@ -89,7 +88,7 @@ const Banner = () => {
         <div className="relative w-[61%] h-[61%] rounded-full overflow-hidden">
           <Image
             src="/images/banner-cy.jpeg"
-            alt="Fingerprint Lock"
+            alt="Cybersecurity Banner"
             fill
             className="object-cover rounded-full"
             priority
@@ -100,6 +99,7 @@ const Banner = () => {
       {/* Decorative Background Circle */}
       <div className="absolute right-0 bottom-0 w-[700px] h-[700px] rounded-full bg-teal-400/10 blur-3xl opacity-30 pointer-events-none"></div>
     </section>
+
   );
 };
 

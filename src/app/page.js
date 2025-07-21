@@ -4,6 +4,7 @@ import Banner from "@/components/Home/Banner/Banner";
 import { FAQs } from "@/components/Home/FAQ/FAQ";
 import { Clients } from "@/components/Home/Industries/Clients";
 import { IndustriesWeServe } from "@/components/Home/Industries/IndustriesWeServe";
+import OurProducts from "@/components/Home/OurProducts/OurProducts";
 import { Pricing } from "@/components/Home/Pricing/Pricing";
 import { Services } from "@/components/Home/Services/Services";
 import Stats from "@/components/Home/Stats/Stats";
@@ -20,6 +21,7 @@ export default function Home() {
       </div>
       {/* <Services /> */}
       <About />
+      <OurProducts />
       <Clients />
       <IndustriesWeServe />
       <Stats />
