@@ -1,119 +1,141 @@
-'use client';
+import React from "react";
+import { FaArrowRightLong, FaArrowLeftLong } from "react-icons/fa6";
 
-import { useRef, useEffect } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { GoShieldCheck, GoLock, GoEye, GoGraph } from 'react-icons/go';
+const Services = () => {
+  const leftLabels = [
+    "Malware",
+    "Database Exposures",
+    "Vulnerabilities",
+    "Phishing & Scams",
+    "Dark Web Activity",
+    "Honeypot Recon",
+    "Zero-Days",
+    "Geopolitical Attacks",
+  ];
 
-gsap.registerPlugin(ScrollTrigger);
-
-export const Services = () => {
-  const sectionRef = useRef(null);
-  const titleRef = useRef(null);
-  const cardRefs = useRef([]);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 80%',
-        },
-      });
-
-      tl.fromTo(
-        titleRef.current,
-        { opacity: 0, y: 50 },
-        { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }
-      );
-
-      gsap.fromTo(
-        cardRefs.current,
-        {
-          opacity: 0,
-          y: 80,
-          scale: 0.9,
-        },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 1,
-          stagger: 0.2,
-          ease: 'power4.out',
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: 'top 80%',
-          },
-        }
-      );
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
-  const services = [
-    {
-      icon: <GoShieldCheck className="text-3xl" />,
-      title: 'Threat Intelligence',
-      description: 'Proactive monitoring and analysis of emerging cyber threats to protect your assets',
-    },
-    {
-      icon: <GoLock className="text-3xl" />,
-      title: 'Vulnerability Management',
-      description: 'Comprehensive security assessments and continuous vulnerability tracking',
-    },
-    {
-      icon: <GoEye className="text-3xl" />,
-      title: 'Incident Response',
-      description: '24/7 rapid response team to contain and eradicate security breaches',
-    },
-    {
-      icon: <GoGraph className="text-3xl" />,
-      title: 'Compliance Advisory',
-      description: 'Ensure regulatory compliance with industry-specific security frameworks',
-    },
+  const rightLabels = [
+    "Implement Proactive Protective Measures",
+    "Detect New Threats",
+    "Block Known Threats",
+    "Respond Quickly",
+    "Analyze Threat Trends",
+    "Correlate with Intelligence",
+    "Prevent Data Leakage",
+    "Real-time Monitoring",
   ];
 
   return (
-    <section
-      ref={sectionRef}
-      id="services"
-      className="relative py-28 px-6 md:px-12 bg-[#111] overflow-hidden"
-    >
-      <div className="max-w-7xl mx-auto relative z-10 text-center">
-        <div className="mb-16">
-          <div className="inline-block bg-[#09e5e5]/20 text-[#09e5e5] px-4 py-1 rounded-full text-sm font-medium mb-4">
-            SECURE YOUR DIGITAL FRONTIER
-          </div>
-          <h2
-            ref={titleRef}
-            className="text-4xl md:text-5xl font-bold text-white opacity-0"
-          >
-            Enterprise-Grade <span className="text-[#a8ff57]">Cyber Defense</span>
-          </h2>
-          <p className="text-gray-400 mt-4 max-w-xl mx-auto text-lg">
-            Comprehensive cybersecurity solutions designed to protect your organization from evolving digital threats.
-          </p>
+    <div className="bg-black text-white py-20 px-4 md:px-0 relative overflow-hidden">
+      {/* Title */}
+      <div className="text-center mb-12 flex justify-center items-center gap-3 text-red-500 text-2xl tracking-wide uppercase">
+        <FaArrowRightLong />
+        <h2>Cyber Threat Intelligence</h2>
+        <FaArrowRightLong />
+      </div>
+
+      {/* Full Width Flex Layout */}
+      <div className="w-full flex flex-col lg:flex-row justify-between items-start relative z-10">
+        {/* Left Labels */}
+        <div className="relative w-full lg:w-[30%] flex justify-end px-4">
+          {/* Extended Vertical Line */}
+          <span
+            className="absolute right-16 w-[2px] bg-red-500"
+            style={{ top: "-80px", bottom: "-80px" }}
+          />
+          <ul className="flex flex-col gap-6 text-sm text-gray-300 pr-6 z-10">
+            {leftLabels.map((label, i) => (
+              <li
+                key={i}
+                className="relative pr-6 flex items-center justify-end text-right"
+              >
+                <span>{label}</span>
+                <span
+                  className="ml-3 relative"
+                  style={{ width: "24px", height: "8px" }}
+                >
+                  <span className="absolute top-1/2 -translate-y-1/2 right-6 w-2 h-2 rounded-full bg-red-500" />
+                  <span
+                    className="absolute top-1/2 -translate-y-1/2 right-0 h-[2px] bg-red-500"
+                    style={{ width: "24px" }}
+                  />
+                </span>
+              </li>
+            ))}
+          </ul>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              ref={(el) => (cardRefs.current[index] = el)}
-              className="group bg-slate-800/40 backdrop-blur-md border border-[#09e5e5]/20 hover:border-[#a8ff57]/40 transition-all rounded-2xl p-6 text-left text-white shadow-xl shadow-black/10 hover:shadow-[#09e5e5]/10"
-            >
-              <div className="bg-[#a8ff57]/10 w-14 h-14 flex items-center justify-center rounded-lg mb-6 text-[#a8ff57] group-hover:scale-110 transition-transform duration-300">
-                {service.icon}
-              </div>
-              <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-              <p className="text-sm text-gray-300">{service.description}</p>
-              <div className="mt-5 h-0.5 bg-gradient-to-r from-[#a8ff57] to-transparent w-10 group-hover:w-full transition-all duration-500" />
-            </div>
-          ))}
+        {/* Center Image + Labels */}
+        <div className="relative w-full lg:w-[40%] flex items-center justify-center h-[420px]">
+          {/* Decorative Red Background */}
+          <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
+            <div className="w-[400px] h-[400px] bg-red-600 rounded-full opacity-20 filter blur-3xl" />
+          </div>
+
+          {/* Around Image Labels */}
+          <div className="absolute top-10 text-2xl text-gray-300 text-center w-full">
+            <p>Market & Partner Intelligence</p>
+          </div>
+
+          <div className="absolute bottom-10 text-2xl text-gray-300 text-center w-full">
+            <p>
+              Digital Forensic &<br />
+              Incident Response
+            </p>
+          </div>
+
+          <div className="absolute left-10 text-2xl text-gray-300 text-right w-32">
+            <p>Proprietary Research</p>
+          </div>
+
+          <div className="absolute right-10 text-2xl text-gray-300 text-left w-32">
+            <p>Threat Hunting</p>
+          </div>
+
+          <img
+            src="/images/service-cy.png"
+            alt="Cyber Threat"
+            className="w-[300px] h-[300px] object-contain z-10"
+          />
+        </div>
+
+        {/* Right Labels */}
+        <div className="relative w-full lg:w-[30%] flex justify-start px-4">
+          {/* Extended Vertical Line */}
+          <span
+            className="absolute left-16 w-[2px] bg-red-500"
+            style={{ top: "-80px", bottom: "-80px" }}
+          />
+          <ul className="flex flex-col gap-6 text-sm text-gray-300 pl-6 z-10">
+            {rightLabels.map((label, i) => (
+              <li
+                key={i}
+                className="relative pl-6 flex items-center justify-start text-left"
+              >
+                <span
+                  className="mr-3 relative"
+                  style={{ width: "24px", height: "8px" }}
+                >
+                  <span
+                    className="absolute top-1/2 -translate-y-1/2 left-0 h-[2px] bg-red-500"
+                    style={{ width: "24px" }}
+                  />
+                  <span className="absolute top-1/2 -translate-y-1/2 right-0 w-2 h-2 rounded-full bg-red-500" />
+                </span>
+                <span>{label}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
-    </section>
+
+      {/* Footer */}
+      <div className="text-center text-2xl text-gray-400 mt-12 flex justify-center items-center gap-3">
+        <FaArrowLeftLong />
+        <p>Telemetry Continuously Applied from Attacks</p>
+        <FaArrowLeftLong />
+      </div>
+    </div>
   );
 };
+
+export default Services;

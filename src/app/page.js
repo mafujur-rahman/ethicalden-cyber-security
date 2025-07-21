@@ -6,7 +6,7 @@ import { Clients } from "@/components/Home/Industries/Clients";
 import { IndustriesWeServe } from "@/components/Home/Industries/IndustriesWeServe";
 import OurProducts from "@/components/Home/OurProducts/OurProducts";
 import { Pricing } from "@/components/Home/Pricing/Pricing";
-import { Services } from "@/components/Home/Services/Services";
+import Services from "@/components/Home/Services/Services";
 import Stats from "@/components/Home/Stats/Stats";
 import { Footer } from "@/components/Shared/Footer/Footer";
 import { Navbar } from "@/components/Shared/Navbar/Navbar";
@@ -19,9 +19,9 @@ export default function Home() {
         <Navbar />
         <Banner />
       </div>
-      {/* <Services /> */}
       <About />
       <OurProducts />
+      <Services />
       <Clients />
       <IndustriesWeServe />
       <Stats />
