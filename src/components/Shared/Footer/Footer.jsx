@@ -17,7 +17,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export const Footer = () => {
   return (
-    <footer className="bg-[#111] border-t border-[#1f1f1f] pt-20 pb-10 px-6 md:px-12 text-[#cfcfcf]">
+    <footer className="bg-[#0c0c0c] border-t border-[#1f1f1f] pt-20 pb-10 px-6 md:px-12 xl:px-28 2xl:px-56 text-[#cfcfcf]">
       <div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Logo & Socials */}

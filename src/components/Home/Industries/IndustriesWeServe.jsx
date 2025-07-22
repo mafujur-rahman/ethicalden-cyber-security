@@ -95,7 +95,7 @@ export const IndustriesWeServe = () => {
     <section
       ref={sectionRef}
       id="industries"
-      className="relative py-28 px-6 md:px-12 bg-[#111] overflow-hidden"
+      className="relative py-28 px-6 md:px-12 xl:px-28 2xl:px-56 bg-[#0c0c0c] overflow-hidden"
     >
 
       {/* Header */}
@@ -103,7 +103,7 @@ export const IndustriesWeServe = () => {
         <span className="inline-block bg-[#09e5e5]/20 text-[#09e5e5] px-4 py-1 rounded-full text-sm font-semibold mb-4">
           INDUSTRY EXPERTISE
         </span>
-        <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+        <h2 className="text-3xl  md:text-4xl lg:text-6xl xl:text-6xl 2xl:text-7xl font-bold text-white mb-4">
           Industries <span className="text-[#a8ff57]">We Protect</span>
         </h2>
         <p className="text-gray-300 text-lg">
@@ -112,7 +112,7 @@ export const IndustriesWeServe = () => {
       </div>
 
       {/* Industry Items Zigzag Layout */}
-      <div className="relative z-10 max-w-6xl mx-auto flex flex-col gap-16">
+      <div className="relative z-10  flex flex-col gap-16">
         {industries.map((industry, index) => (
           <div
             key={index}

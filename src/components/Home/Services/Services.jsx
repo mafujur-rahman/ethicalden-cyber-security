@@ -25,7 +25,7 @@ const Services = () => {
   ];
 
   return (
-    <div className="bg-black text-white py-20 px-4 md:px-0 relative overflow-hidden">
+    <div className="bg-black text-white py-20 px-6 md:px-12 xl:px-28  relative overflow-hidden">
       {/* Title */}
       <div className="text-center mb-12 flex justify-center items-center gap-3 text-[#a8ff57] text-2xl tracking-wide uppercase">
         <FaArrowRightLong />

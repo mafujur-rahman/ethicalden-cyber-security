@@ -94,14 +94,14 @@ export const Pricing = () => {
     <section
       id="pricing"
       ref={sectionRef}
-      className="py-28 px-6 md:px-12 bg-[#111] relative overflow-hidden"
+      className="py-28 px-6 md:px-12 xl:px-28 2xl:px-56 bg-[#0c0c0c] relative overflow-hidden"
     >
-      <div ref={containerRef} className="max-w-7xl mx-auto relative z-10 opacity-0">
+      <div ref={containerRef} className="relative z-10 opacity-0">
         <div className="text-center mb-16">
           <span className="inline-block bg-[#09e5e5]/20 text-[#09e5e5] px-4 py-1 rounded-full mb-4 text-sm font-medium">
             PRICING PLANS
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-6xl xl:text-6xl 2xl:text-7xl font-bold text-white mb-6">
             Flexible <span className="text-[#a8ff57]">Security Packages</span>
           </h2>
           <p className="text-gray-300 max-w-2xl mx-auto">
@@ -114,7 +114,7 @@ export const Pricing = () => {
             <div
               key={index}
               ref={(el) => (cardRefs.current[index] = el)}
-              className={`relative group transition-all duration-300 ease-in-out transform bg-white/5 backdrop-blur-md border rounded-2xl p-8 shadow-lg hover:scale-[1.025] hover:-translate-y-2 hover:shadow-[#09e5e5]/10 ${
+              className={`relative group flex flex-col transition-all duration-300 ease-in-out transform bg-white/5 backdrop-blur-md border rounded-2xl p-8 shadow-lg hover:scale-[1.025] hover:-translate-y-2 hover:shadow-[#09e5e5]/10 ${
                 plan.highlighted
                   ? 'border-[#a8ff57]/50 shadow-[#a8ff57]/10 scale-[1.03]'
                   : 'border-[#09e5e5]/20 shadow-black/10 opacity-0'
@@ -144,10 +144,10 @@ export const Pricing = () => {
               </ul>
 
               <button
-                className={`w-full py-3 rounded-lg font-medium transition-all duration-300 ${
+                className={`mt-auto w-full py-3 rounded-full font-medium transition-all duration-300 ${
                   plan.highlighted
-                    ? 'bg-[#a8ff57] hover:bg-[#94ff4e] text-black'
-                    : 'bg-slate-800 hover:bg-slate-700 text-gray-300'
+                    ? 'bg-[#a8ff57] hover:bg-[#09e5e5] text-black'
+                    : 'bg-[#09e5e5] hover:bg-[#a8ff57] text-black'
                 }`}
               >
                 Get Started

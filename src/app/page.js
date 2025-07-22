@@ -2,7 +2,7 @@
 import About from "@/components/Home/About/About";
 import Banner from "@/components/Home/Banner/Banner";
 import { FAQs } from "@/components/Home/FAQ/FAQ";
-import { Clients } from "@/components/Home/Industries/Clients";
+import Clients from "@/components/Home/Industries/Clients";
 import { IndustriesWeServe } from "@/components/Home/Industries/IndustriesWeServe";
 import OurProducts from "@/components/Home/OurProducts/OurProducts";
 import { Pricing } from "@/components/Home/Pricing/Pricing";

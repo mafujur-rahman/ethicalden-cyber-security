@@ -1,92 +1,98 @@
 'use client';
-import { useRef, useEffect } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-gsap.registerPlugin(ScrollTrigger);
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
 
-export const Clients = () => {
-  const containerRef = useRef(null);
-  
+const clients = [
+  "CyberGuard Inc.",
+  "ShieldTech Solutions",
+  "DataVault Systems",
+  "SecureNet Ltd.",
+  "FortifySoft",
+  "SafeWave Corp.",
+  "TrustLayer Security",
+  "InvisiSecure",
+  "DarkTrace AI",
+  "RedWatch Cyber",
+  "LockSphere",
+  "HexaDefend",
+];
+
+export default function Clients() {
+  const rowOneRef = useRef(null);
+  const rowTwoRef = useRef(null);
+
   useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-    
-    const scrollers = container.querySelectorAll('.scroller');
-    
-    scrollers.forEach((scroller) => {
-      // Duplicate content for seamless looping
-      scroller.innerHTML = scroller.innerHTML + scroller.innerHTML;
-      
-      // Animation
-      gsap.to(scroller, {
-        x: () => -(scroller.scrollWidth / 2),
-        ease: "none",
+    const animateRow = (row, direction = 1) => {
+      const boxes = row.querySelectorAll('.scroll-item');
+      const totalWidth = Array.from(boxes).reduce((acc, box) => acc + box.offsetWidth + 40, 0);
+
+      gsap.set(row, { x: 0 });
+
+      gsap.to(row, {
+        x: direction * -totalWidth / 2,
+        duration: 30,
+        ease: 'none',
         repeat: -1,
-        duration: 40,
         modifiers: {
-          x: gsap.utils.unitize(x => parseFloat(x) % (scroller.scrollWidth / 2))
-        }
+          x: gsap.utils.unitize((x) => {
+            let val = parseFloat(x);
+            const limit = totalWidth / 2;
+            if (direction === 1) {
+              return val % (-limit);
+            } else {
+              return ((val + limit) % limit) - limit;
+            }
+          }),
+        },
       });
-    });
+    };
+
+    animateRow(rowOneRef.current, 1);
+    animateRow(rowTwoRef.current, -1);
   }, []);
 
-  const clients = [
-    { name: 'FinTech Global', logo: 'FG' },
-    { name: 'MedSecure', logo: 'MS' },
-    { name: 'GovSecure', logo: 'GS' },
-    { name: 'E-Commerce Solutions', logo: 'ES' },
-    { name: 'EnergyGrid Inc', logo: 'EG' },
-    { name: 'TechInnovate', logo: 'TI' },
-    { name: 'BankSecure', logo: 'BS' },
-    { name: 'HealthData Systems', logo: 'HS' }
-  ];
+  const duplicatedClients = [...clients, ...clients];
 
   return (
-    <section className="py-16 bg-[#1c1c1c] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
-        <h3 className="text-center text-[#a8ff57] mb-10 font-semibold">
-          Trusted by industry leaders
-        </h3>
-        
-        <div ref={containerRef} className="relative w-full">
-          {/* First scrolling row */}
-          <div className="scroller flex w-max gap-16 py-4">
-            {clients.map((client, index) => (
-              <div key={index} className="flex items-center gap-4 shrink-0">
-                <div
-                  className="w-14 h-14 rounded-xl flex items-center justify-center font-bold"
-                  style={{
-                    background: `linear-gradient(135deg, #09e5e5, #a8ff57)`,
-                    color: '#000000',
-                  }}
-                >
-                  {client.logo}
-                </div>
-                <span className="text-white font-medium">{client.name}</span>
-              </div>
-            ))}
-          </div>
-          
-          {/* Second scrolling row (reverse) */}
-          <div className="scroller flex w-max gap-16 py-4 mt-6">
-            {[...clients].reverse().map((client, index) => (
-              <div key={index} className="flex items-center gap-4 shrink-0">
-                <div
-                  className="w-14 h-14 rounded-xl flex items-center justify-center font-bold"
-                  style={{
-                    background: `linear-gradient(135deg, #09e5e5, #a8ff57)`,
-                    color: '#000000',
-                  }}
-                >
-                  {client.logo}
-                </div>
-                <span className="text-white font-medium">{client.name}</span>
-              </div>
-            ))}
-          </div>
+    <section className="py-32 bg-black overflow-hidden text-white">
+      {/* Title */}
+      <div className="text-center mb-16 px-4">
+        <h2 className="text-3xl  md:text-4xl lg:text-6xl xl:text-6xl 2xl:text-7xl font-extrabold tracking-wide text-white">
+          Our <span className="text-[#a8ff57]">Trusted Clients</span>
+        </h2>
+        <p className="text-gray-400 max-w-2xl mx-auto mt-4">
+          Proudly serving industry leaders in cybersecurity and digital defense
+        </p>
+      </div>
+
+      {/* First Scrolling Row (Right to Left) */}
+      <div className="w-full overflow-hidden mb-12">
+        <div ref={rowOneRef} className="flex gap-10 w-max">
+          {duplicatedClients.map((client, index) => (
+            <div
+              key={index}
+              className="scroll-item flex items-center justify-center w-64 h-20 flex-shrink-0 bg-[#1e1e1e] rounded-lg shadow-md text-lg font-semibold text-[#09e5e5] px-6 py-4 border border-[#09e5e5]"
+            >
+              {client}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Second Scrolling Row (Left to Right) */}
+      <div className="w-full overflow-hidden">
+        <div ref={rowTwoRef} className="flex gap-10 w-max justify-end">
+          {duplicatedClients.map((client, index) => (
+            <div
+              key={index}
+              className="scroll-item flex items-center justify-center w-64 h-20 flex-shrink-0 bg-[#1e1e1e] rounded-lg shadow-md text-lg font-semibold text-[#09e5e5] px-6 py-4 border border-[#09e5e5]"
+            >
+              {client}
+            </div>
+          ))}
         </div>
       </div>
     </section>
   );
-};
+}

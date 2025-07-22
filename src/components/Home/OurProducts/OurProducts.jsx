@@ -63,14 +63,14 @@ const OurProducts = () => {
     const [selectedProduct, setSelectedProduct] = useState(products[0].title);
 
     return (
-        <div className='bg-[#111] px-6 md:px-12 xl:px-28 2xl:px-56 py-20'>
+        <div className='bg-[#0c0c0c] px-6 md:px-12 xl:px-28 2xl:px-56 py-20'>
             {/* Section Title */}
             <h1 className="text-white text-3xl  md:text-4xl lg:text-6xl xl:text-6xl 2xl:text-7xl font-extrabold max-w-7xl mb-20 z-20">
                 Cutting-Edge Cyber Security Products to <span className='text-[#a8ff57]'>Safeguard Your Digital World.</span>
             </h1>
 
             {/* Product List */}
-            <div className='text-2xl font-bold grid grid-cols-2 lg:grid-cols-4 gap-10 cursor-pointer text-white'>
+            <div className='text-2xl font-bold grid md:grid-cols-2 lg:grid-cols-4 gap-10 cursor-pointer text-white'>
                 {products.map((product, index) => (
                     <div
                         key={index}

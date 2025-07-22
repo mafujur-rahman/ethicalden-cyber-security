@@ -29,7 +29,7 @@ export const FAQs = () => {
         }
       );
 
-      itemRefs.current.forEach((item, i) => {
+      itemRefs.current.forEach((item) => {
         gsap.fromTo(
           item,
           { opacity: 0, y: 30 },
@@ -88,21 +88,25 @@ export const FAQs = () => {
   ];
 
   return (
-    <section ref={sectionRef} className="py-24 px-6 md:px-12 bg-[#1c1c1c] text-white">
-      <div ref={containerRef} className="max-w-3xl mx-auto">
-        <div className="text-center mb-16">
-          <span className="inline-block bg-[#09e5e5]/20 text-[#09e5e5] px-4 py-1 rounded-full mb-4 text-sm font-medium tracking-wider">
-            HAVE QUESTIONS?
-          </span>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Frequently Asked <span className="text-[#a8ff57]">Questions</span>
-          </h2>
-          <p className="text-gray-400 max-w-xl mx-auto text-lg">
-            Find answers to common questions about our cybersecurity services
-          </p>
-        </div>
+    <section ref={sectionRef} className="py-24 px-6 md:px-12 xl:px-28 2xl:px-56 bg-black text-white">
+      {/* Top Shared Section Title */}
+      <div className="text-center mb-16">
+        <h2 className="text-3xl  md:text-4xl lg:text-6xl xl:text-6xl 2xl:text-7xl font-bold mb-4">
+          Need Help or <span className="text-[#a8ff57]">Want to Reach Out?</span>
+        </h2>
+        <p className="text-gray-400  text-lg">
+          Explore our FAQs or connect with us directly – we’re here to assist you.
+        </p>
+      </div>
 
-        <div className="grid grid-cols-1 gap-6">
+      {/* Columns Layout */}
+      <div
+        ref={containerRef}
+        className=" grid grid-cols-1 md:grid-cols-2 gap-12 2xl:gap-20"
+      >
+        {/* Left: FAQ */}
+        <div className="space-y-6">
+          <h3 className="text-2xl font-bold text-[#09e5e5] mb-4">Frequently Asked Questions</h3>
           {faqs.map((faq, index) => (
             <div
               key={index}
@@ -115,13 +119,13 @@ export const FAQs = () => {
               }`}
             >
               <div className="flex justify-between items-start">
-                <h3
+                <h4
                   className={`text-lg font-semibold pr-4 transition-colors ${
                     activeIndex === index ? 'text-[#a8ff57]' : 'text-white'
                   }`}
                 >
                   {faq.question}
-                </h3>
+                </h4>
                 <div className="w-6 h-6 flex items-center justify-center">
                   <svg
                     className={`transition-transform duration-300 ease-in-out ${
@@ -142,7 +146,6 @@ export const FAQs = () => {
                   </svg>
                 </div>
               </div>
-
               <div
                 className={`overflow-hidden transition-all duration-500 ease-in-out ${
                   activeIndex === index ? 'max-h-96 mt-4 opacity-100' : 'max-h-0 opacity-0'
@@ -154,6 +157,39 @@ export const FAQs = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Right: Contact */}
+        <div>
+          <h3 className="text-2xl font-bold text-[#09e5e5] mb-4">Contact Us</h3>
+          <div className="bg-white/5 backdrop-blur-sm border border-[#333] rounded-xl p-8">
+            <p className="text-gray-300 mb-6">
+              Still have questions? Reach out to our team directly.
+            </p>
+            <form className="space-y-4">
+              <input
+                type="text"
+                placeholder="Your Name"
+                className="w-full px-4 py-2 rounded bg-[#1c1c1c] border border-[#333] text-white focus:outline-none focus:border-[#a8ff57]"
+              />
+              <input
+                type="email"
+                placeholder="Your Email"
+                className="w-full px-4 py-2 rounded bg-[#1c1c1c] border border-[#333] text-white focus:outline-none focus:border-[#a8ff57]"
+              />
+              <textarea
+                rows="4"
+                placeholder="Your Message"
+                className="w-full px-4 py-2 rounded bg-[#1c1c1c] border border-[#333] text-white focus:outline-none focus:border-[#a8ff57]"
+              ></textarea>
+              <button
+                type="submit"
+                className="w-full bg-[#a8ff57]  text-black font-semibold py-2 px-6 rounded-full transition hover:bg-[#09e5e5]"
+              >
+                Send Message
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </section>

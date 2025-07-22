@@ -108,11 +108,11 @@ const Stats = () => {
     <section
       id="stats"
       ref={sectionRef}
-      className="py-28 px-6 md:px-12 bg-[#1c1c1c] overflow-hidden relative"
+      className="py-28 px-6 md:px-12 xl:px-28 2xl:px-56 bg-black overflow-hidden relative"
     >
       {/* Header */}
-      <div className="text-center mb-20 max-w-3xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+      <div className="text-center mb-20 ">
+        <h2 className="text-3xl  md:text-4xl lg:text-6xl xl:text-6xl 2xl:text-7xl font-bold text-white mb-4">
           Real-Time <span className="text-[#a8ff57]">Threat Intelligence</span>
         </h2>
         <p className="text-[#09e5e5] text-lg">
