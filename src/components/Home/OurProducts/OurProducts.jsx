@@ -109,7 +109,7 @@ const OurProducts = () => {
   };
 
   return (
-    <div className='bg-[#0c0c0c] px-6 md:px-12 xl:px-28 2xl:px-56 py-20'>
+    <div id='works' className='bg-[#0c0c0c] px-6 md:px-12 xl:px-28 2xl:px-56 py-20'>
       <h1 className="text-white text-3xl md:text-4xl lg:text-6xl xl:text-6xl 2xl:text-7xl font-extrabold max-w-7xl mb-20 z-20">
         Cutting-Edge Cyber Security Products to <span className='text-[#a8ff57]'>Safeguard Your Digital World.</span>
       </h1>

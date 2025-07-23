@@ -161,9 +161,10 @@ export const Navbar = () => {
           <div className="px-6 py-2 rounded-full border border-white/10 backdrop-blur-md bg-white/10 shadow-lg">
             <nav className="flex space-x-10">
               {[
+                { id: 'about', label: 'About' },
                 { id: 'services', label: 'Services' },
-                { id: 'stats', label: 'Stats' },
-                { id: 'blogs', label: 'Blogs' },
+                { id: 'works', label: 'Works' },
+                { id: 'stats', label: 'Stats' },               
                 { id: 'pricing', label: 'Pricing' },
               ].map((item) => (
                 <button

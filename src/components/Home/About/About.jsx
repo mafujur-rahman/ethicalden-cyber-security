@@ -32,7 +32,7 @@ const About = () => {
   }, []);
 
   return (
-    <div className="bg-[#0c0c0c] px-6 md:px-12 xl:px-28 2xl:px-56 py-20">
+    <div id='about' className="bg-[#0c0c0c] px-6 md:px-12 xl:px-28 2xl:px-56 py-20">
       <h1 className="text-3xl md:text-4xl lg:text-6xl xl:text-6xl 2xl:text-7xl font-extrabold max-w-7xl text-white mb-20 z-20">
         Securing the Digital World with Advanced{' '}
         <span className="text-[#a8ff57]">Cybersecurity Solutions</span>
