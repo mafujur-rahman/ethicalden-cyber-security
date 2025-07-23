@@ -88,107 +88,129 @@ export const FAQs = () => {
   ];
 
   return (
-    <section ref={sectionRef} className="py-24 px-6 md:px-12 xl:px-28 2xl:px-56 bg-black text-white">
-      {/* Top Shared Section Title */}
+    <section
+      ref={sectionRef}
+      className="py-24 px-6 md:px-12 xl:px-28 2xl:px-56 bg-black text-white"
+    >
+      {/* Shared Title */}
       <div className="text-center mb-16">
-        <h2 className="text-3xl  md:text-4xl lg:text-6xl xl:text-6xl 2xl:text-7xl font-bold mb-4">
+        <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold mb-4">
           Need Help or <span className="text-[#a8ff57]">Want to Reach Out?</span>
         </h2>
-        <p className="text-gray-400  text-lg">
+        <p className="text-gray-400 text-lg">
           Explore our FAQs or connect with us directly – we’re here to assist you.
         </p>
       </div>
 
-      {/* Columns Layout */}
+      {/* Grid Columns with Same Height on Large Devices */}
       <div
         ref={containerRef}
-        className=" grid grid-cols-1 md:grid-cols-2 gap-12 2xl:gap-20"
+        className="grid grid-cols-1 lg:grid-cols-2 gap-12 2xl:gap-20 lg:min-h-[600px]"
       >
-        {/* Left: FAQ */}
-        <div className="space-y-6">
-          <h3 className="text-2xl font-bold text-[#09e5e5] mb-4">Frequently Asked Questions</h3>
-          {faqs.map((faq, index) => (
-            <div
-              key={index}
-              ref={(el) => (itemRefs.current[index] = el)}
-              onClick={() => toggleFAQ(index)}
-              className={`transition-all duration-300 border rounded-xl cursor-pointer p-6 bg-white/5 backdrop-blur-sm ${
-                activeIndex === index
-                  ? 'border-[#a8ff57] shadow-lg shadow-[#a8ff57]/30'
-                  : 'border-[#333]'
-              }`}
-            >
-              <div className="flex justify-between items-start">
-                <h4
-                  className={`text-lg font-semibold pr-4 transition-colors ${
-                    activeIndex === index ? 'text-[#a8ff57]' : 'text-white'
+        {/* FAQ Section */}
+        <div className="flex flex-col justify-between lg:h-full">
+          <div>
+            <h3 className="text-2xl font-bold text-[#09e5e5] mb-4">
+              Frequently Asked Questions
+            </h3>
+            <div className="space-y-6">
+              {faqs.map((faq, index) => (
+                <div
+                  key={index}
+                  ref={(el) => (itemRefs.current[index] = el)}
+                  onClick={() => toggleFAQ(index)}
+                  className={`transition-all duration-300 border rounded-xl cursor-pointer p-6 bg-white/5 backdrop-blur-sm ${
+                    activeIndex === index
+                      ? 'border-[#a8ff57] shadow-lg shadow-[#a8ff57]/30'
+                      : 'border-[#333]'
                   }`}
                 >
-                  {faq.question}
-                </h4>
-                <div className="w-6 h-6 flex items-center justify-center">
-                  <svg
-                    className={`transition-transform duration-300 ease-in-out ${
-                      activeIndex === index ? 'rotate-180 text-[#a8ff57]' : 'text-[#09e5e5]'
+                  <div className="flex justify-between items-start">
+                    <h4
+                      className={`text-lg font-semibold pr-4 transition-colors ${
+                        activeIndex === index ? 'text-[#a8ff57]' : 'text-white'
+                      }`}
+                    >
+                      {faq.question}
+                    </h4>
+                    <div className="w-6 h-6 flex items-center justify-center">
+                      <svg
+                        className={`transition-transform duration-300 ease-in-out ${
+                          activeIndex === index
+                            ? 'rotate-180 text-[#a8ff57]'
+                            : 'text-[#09e5e5]'
+                        }`}
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                      >
+                        <path
+                          d="M6 9L12 15L18 9"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div
+                    className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                      activeIndex === index ? 'max-h-96 mt-4 opacity-100' : 'max-h-0 opacity-0'
                     }`}
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
                   >
-                    <path
-                      d="M6 9L12 15L18 9"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
+                    <div className="pt-4 border-t border-[#333]">
+                      <p className="text-gray-300">{faq.answer}</p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div
-                className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                  activeIndex === index ? 'max-h-96 mt-4 opacity-100' : 'max-h-0 opacity-0'
-                }`}
-              >
-                <div className="pt-4 border-t border-[#333]">
-                  <p className="text-gray-300">{faq.answer}</p>
-                </div>
-              </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
 
-        {/* Right: Contact */}
-        <div>
-          <h3 className="text-2xl font-bold text-[#09e5e5] mb-4">Contact Us</h3>
-          <div className="bg-white/5 backdrop-blur-sm border border-[#333] rounded-xl p-8">
-            <p className="text-gray-300 mb-6">
-              Still have questions? Reach out to our team directly.
-            </p>
-            <form className="space-y-4">
-              <input
-                type="text"
-                placeholder="Your Name"
-                className="w-full px-4 py-2 rounded bg-[#1c1c1c] border border-[#333] text-white focus:outline-none focus:border-[#a8ff57]"
-              />
-              <input
-                type="email"
-                placeholder="Your Email"
-                className="w-full px-4 py-2 rounded bg-[#1c1c1c] border border-[#333] text-white focus:outline-none focus:border-[#a8ff57]"
-              />
-              <textarea
-                rows="4"
-                placeholder="Your Message"
-                className="w-full px-4 py-2 rounded bg-[#1c1c1c] border border-[#333] text-white focus:outline-none focus:border-[#a8ff57]"
-              ></textarea>
-              <button
-                type="submit"
-                className="w-full bg-[#a8ff57]  text-black font-semibold py-2 px-6 rounded-full transition hover:bg-[#09e5e5]"
-              >
-                Send Message
-              </button>
-            </form>
+        {/* Contact Form - Bottom Aligned & Full Height */}
+        <div className="flex flex-col justify-end lg:h-full">
+          <div>
+            <h3 className="text-2xl font-bold text-[#09e5e5] mb-4">Contact Us</h3>
+            <div className="bg-white/5 backdrop-blur-sm border border-[#333] rounded-xl p-8 lg:py-16 xl:py-14">
+              <p className="text-gray-300 mb-6">
+                Still have questions? Reach out to our team directly.
+              </p>
+              <form className="space-y-5">
+                <div>
+                  <label className="block text-sm text-gray-400 mb-1">Name</label>
+                  <input
+                    type="text"
+                    placeholder="Your Name"
+                    className="w-full px-4 py-3 rounded bg-[#1c1c1c] border border-[#333] text-white focus:outline-none focus:border-[#a8ff57]"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm text-gray-400 mb-1">Email</label>
+                  <input
+                    type="email"
+                    placeholder="Your Email"
+                    className="w-full px-4 py-3 rounded bg-[#1c1c1c] border border-[#333] text-white focus:outline-none focus:border-[#a8ff57]"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm text-gray-400 mb-1">Message</label>
+                  <textarea
+                    rows="5"
+                    placeholder="Write your message..."
+                    className="w-full px-4 py-3 rounded bg-[#1c1c1c] border border-[#333] text-white focus:outline-none focus:border-[#a8ff57]"
+                  ></textarea>
+                </div>
+                <button
+                  type="submit"
+                  className="w-full bg-[#a8ff57] text-black font-semibold py-3 px-6 rounded-full transition hover:bg-[#09e5e5]"
+                >
+                  Send Message
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>

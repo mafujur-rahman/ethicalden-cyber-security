@@ -2,35 +2,13 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 
-const images = [
-  '/images/banner-img.jpg',
-  '/images/cy-banner.webp',
-  '/images/Cybersecurity.jpeg',
-];
 
 const About = () => {
-  const imageRef = useRef(null);
   const barRef = useRef(null);
   const barRef2 = useRef(null);
 
   useEffect(() => {
-    // Image fade animation
-    const el = imageRef.current.querySelector('img');
-    let index = 0;
 
-    const updateImage = () => {
-      gsap.to(el, {
-        opacity: 0,
-        duration: 0.6,
-        onComplete: () => {
-          index = (index + 1) % images.length;
-          el.src = images[index];
-          gsap.to(el, { opacity: 1, duration: 0.6 });
-        },
-      });
-    };
-
-    const interval = setInterval(updateImage, 6000);
 
     // Animate vertical position of the bar: down 10px then back
     const bar = barRef.current;
@@ -61,22 +39,53 @@ const About = () => {
       </h1>
 
       <div className="flex flex-col lg:flex-row justify-between items-center gap-16">
-        {/* Left Side - Circular 3D Animated Image Rotator */}
-        <div className="relative w-[280px] md:w-[360px] lg:w-[450px] h-[280px] md:h-[360px] lg:h-[450px] mx-auto perspective-1000">
-          <div
-            ref={imageRef}
-            className="absolute w-full h-full rounded-full overflow-hidden transition-transform duration-[2000ms] ease-in-out transform-style-preserve-3d animate-rotateImage"
+        <div className="relative w-[280px] md:w-[360px] lg:w-[450px] xl:w-[550px] h-[280px] md:h-[360px] lg:h-[450px] xl:h-[550px] mx-auto">
+          {/* Background Fluid Shapes */}
+          <svg
+            className="absolute top-0 left-0 w-full h-full pointer-events-none rounded-2xl"
+            viewBox="0 0 600 600"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
           >
+            {/* Large blurred gradient blob */}
+            <defs>
+              <radialGradient id="gradient1" cx="0.5" cy="0.5" r="0.7">
+                <stop offset="0%" stopColor="#a8ff57" stopOpacity="0.7" />
+                <stop offset="100%" stopColor="#a8ff57" stopOpacity="0" />
+              </radialGradient>
+              <radialGradient id="gradient2" cx="0.5" cy="0.5" r="0.7">
+                <stop offset="0%" stopColor="#09e5e5" stopOpacity="0.7" />
+                <stop offset="100%" stopColor="#09e5e5" stopOpacity="0" />
+              </radialGradient>
+            </defs>
+
+            <circle
+              cx="300"
+              cy="300"
+              r="250"
+              fill="url(#gradient1)"
+              style={{ filter: "blur(70px)" }}
+            />
+            <circle
+              cx="420"
+              cy="200"
+              r="180"
+              fill="url(#gradient2)"
+              style={{ filter: "blur(100px)" }}
+            />
+          </svg>
+
+          {/* Image with hover scale */}
+          <div className="relative z-10 rounded-3xl overflow-hidden transition-transform duration-700 hover:scale-105 cursor-pointer">
             <img
-              src={images[0]}
-              alt="Cybersecurity Visual"
+              src="/images/about.png"
+              alt="Artistic About Visual"
               className="w-full h-full object-cover"
             />
           </div>
-
-          {/* Outer Glow Ring */}
-          <div className="absolute inset-0 rounded-full border-[3px] border-[#a8ff57] animate-glow opacity-20 pointer-events-none" />
         </div>
+
 
         {/* Right Side - Info Section */}
         <div className="max-w-xl">
@@ -133,7 +142,7 @@ const About = () => {
             </div>
           </div>
 
-          <button className="mt-8 px-6 py-3 border text-xs md:text-xs lg:text-[16px] xl:text-xl text-black bg-[#a8ff57] hover:bg-[#09e5e5] hover:text-black transition rounded-full font-semibold">
+          <button className="mt-8 px-6 py-2 border text-xs md:text-xs lg:text-[16px] xl:text-xl text-black bg-[#a8ff57] hover:bg-[#09e5e5] hover:text-black transition rounded-full font-semibold">
             LEARN MORE
           </button>
         </div>
