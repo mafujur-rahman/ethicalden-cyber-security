@@ -27,7 +27,7 @@ const Banner = () => {
   return (
     <section className="w-full min-h-[110vh] bg-black text-white flex flex-col md:flex-row items-center justify-between xl:justify-around px-6 md:px-12 xl:px-28 2xl:px-42 py-20 relative pt-36 overflow-hidden gap-10 2xl:gap-6">
       {/* Left Content */}
-      <div className="w-full md:w-1/2 md:text-left z-10">
+      <div className="w-full md:w-1/2 md:text-left z-20">
         <h1 className="text-3xl md:text-4xl lg:text-6xl xl:text-6xl 2xl:text-7xl font-bold leading-tight max-w-2xl 2xl:max-w-3xl mx-auto md:mx-0">
           Trusted Cybersecurity<br />
           <span className="text-[#a8ff57]">for a Safer Future</span>
@@ -42,17 +42,32 @@ const Banner = () => {
         </button>
       </div>
 
-      {/* Right Image */}
-      <div
-        ref={rightRef}
-        className="relative flex items-center justify-center w-full max-w-[400px] sm:max-w-[480px] lg:max-w-[520px] aspect-square mx-auto lg:mx-0 z-10"
-      >
-        <div className="relative w-full h-full  overflow-hidden z-10">
+      {/* Right Image with Artistic Curves */}
+      <div className="relative w-full md:w-1/2 max-w-[520px] aspect-square mx-auto lg:mx-0 z-10">
+        {/* Curved SVG Background */}
+        <svg
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none"
+          width="520"
+          height="520"
+          viewBox="0 0 520 520"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+          style={{ zIndex: 0 }}
+        >
+          
+        </svg>
+
+        <div
+          ref={rightRef}
+          className="relative w-full h-full overflow-hidden rounded-[2rem] shadow-2xl shadow-[#09e5e540]"
+          style={{ zIndex: 10 }}
+        >
           <Image
             src="/images/banner-img.png"
             alt="Cybersecurity Banner"
             fill
-            className="object-cover "
+            className="object-cover rounded-[2rem]"
             priority
           />
         </div>

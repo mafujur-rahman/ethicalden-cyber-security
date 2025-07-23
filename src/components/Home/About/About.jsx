@@ -42,7 +42,7 @@ const About = () => {
         <div className="relative w-[280px] md:w-[360px] lg:w-[450px] xl:w-[550px] h-[280px] md:h-[360px] lg:h-[450px] xl:h-[550px] mx-auto">
           {/* Background Fluid Shapes */}
           <svg
-            className="absolute top-0 left-0 w-full h-full pointer-events-none rounded-2xl"
+            className="absolute top-0 left-0 w-full h-full pointer-events-none rounded-[2rem]"
             viewBox="0 0 600 600"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
