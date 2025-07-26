@@ -1,75 +1,75 @@
 'use client';
-import Image from 'next/image';
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 
 const Banner = () => {
-  const rightRef = useRef(null);
+  const leftRef = useRef(null);
 
   useEffect(() => {
-    const handleMouseMove = (e) => {
-      const { innerWidth, innerHeight } = window;
-      const offsetX = (e.clientX - innerWidth / 2) / 40;
-      const offsetY = (e.clientY - innerHeight / 2) / 40;
-
-      gsap.to(rightRef.current, {
-        x: -offsetX,
-        y: -offsetY,
-        duration: 0.6,
+    gsap.fromTo(
+      leftRef.current.querySelectorAll('h1, p, button'),
+      { opacity: 0, y: 20 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        stagger: 0.15,
         ease: 'power2.out',
-      });
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+        delay: 0.3
+      }
+    );
   }, []);
 
   return (
-    <section className="w-full min-h-[110vh] bg-black text-white flex flex-col md:flex-row items-center justify-between xl:justify-around px-6 md:px-12 xl:px-28 2xl:px-42 py-20 relative pt-36 overflow-hidden gap-10 2xl:gap-6">
+    <section
+      className="w-full min-h-[100vh] bg-black text-white flex flex-col lg:flex-row items-center justify-between px-6 md:px-12 xl:px-28 2xl:px-56 py-20 relative pt-36 md:pt-76 lg:pt-40 xl:pt-52 2xl:pt-64 overflow-hidden gap-10"
+      style={{
+        backgroundImage: "url('/images/banner-img.jpg')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
+      <div className="absolute inset-0 bg-black/60 z-0" />
+
       {/* Left Content */}
-      <div className="w-full md:w-1/2 md:text-left z-20">
-        <h1 className="text-3xl md:text-4xl lg:text-6xl xl:text-6xl 2xl:text-7xl font-bold leading-tight max-w-2xl 2xl:max-w-3xl mx-auto md:mx-0">
-          Trusted Cybersecurity<br />
-          <span className="text-[#a8ff57]">for a Safer Future</span>
+      <div ref={leftRef} className="w-full lg:w-1/2 text-left z-10 max-w-2xl">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
+          <span className="block mb-2">Advanced Cyber</span>
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#a8ff57] to-[#09e5e5]">
+            Defense Solutions
+          </span>
         </h1>
-        <p className="text-gray-300 max-w-xl mx-auto md:mx-0 mt-6 text-base sm:text-lg leading-relaxed">
-          Safeguarding digital environments with cutting-edge security solutions tailored
-          for modern threats—because your data deserves protection.
+
+        <p className="text-gray-300 mt-6 text-lg md:text-xl leading-relaxed max-w-xl">
+          Protecting digital ecosystems with cutting-edge security frameworks designed
+          to anticipate and neutralize modern threats—ensuring your data remains impenetrable.
         </p>
 
-        <button className="mt-8 px-6 py-3 border text-xs md:text-xs lg:text-[16px] xl:text-xl text-black bg-[#a8ff57] hover:bg-[#09e5e5] hover:text-black transition rounded-full font-semibold">
-          EXPLORE OUR SECURITY SOLUTIONS
-        </button>
-      </div>
+        <div className="mt-10 flex flex-col sm:flex-row gap-4">
+          <button className="px-6 py-2 text-sm xl:text-base bg-gradient-to-r from-[#a8ff57] to-[#09e5e5] text-black font-semibold rounded-full hover:shadow-lg hover:shadow-[#09e5e540] transition-all duration-300 transform hover:-translate-y-1 group">
+            <span>EXPLORE SOLUTIONS</span>
+            <span className="ml-2 inline-block group-hover:translate-x-1 transition-transform">→</span>
+          </button>
 
-      {/* Right Image with Artistic Curves */}
-      <div className="relative w-full md:w-1/2 max-w-[520px] aspect-square mx-auto lg:mx-0 z-10">
-        {/* Curved SVG Background */}
-        <svg
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none"
-          width="520"
-          height="520"
-          viewBox="0 0 520 520"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true"
-          style={{ zIndex: 0 }}
-        >
-          
-        </svg>
+          <button className="px-6 py-2 text-sm xl:text-base border border-[#a8ff57] text-[#a8ff57] hover:border-[#09e5e5] hover:bg-[#09e5e5] hover:text-black font-semibold rounded-full  transition-all duration-300">
+            REQUEST DEMO
+          </button>
+        </div>
 
-        <div
-          ref={rightRef}
-          className="relative w-full h-full overflow-hidden rounded-[2rem] shadow-2xl shadow-[#09e5e540]"
-          style={{ zIndex: 10 }}
-        >
-          <Image
-            src="/images/banner-img.png"
-            alt="Cybersecurity Banner"
-            fill
-            className="object-cover rounded-[2rem]"
-            priority
-          />
+        <div className="mt-12 flex flex-wrap gap-6">
+          <div className="flex items-center gap-3">
+            <div className="w-3 h-3 rounded-full bg-[#a8ff57] animate-pulse" />
+            <span>24/7 Threat Monitoring</span>
+          </div>
+          <div className="flex items-center gap-3">
+            <div className="w-3 h-3 rounded-full bg-[#a8ff57] animate-pulse" />
+            <span>AI-Powered Protection</span>
+          </div>
+          <div className="flex items-center gap-3">
+            <div className="w-3 h-3 rounded-full bg-[#a8ff57] animate-pulse" />
+            <span>Enterprise-Grade Security</span>
+          </div>
         </div>
       </div>
     </section>
